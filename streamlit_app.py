@@ -1,5 +1,5 @@
 import os
-
+import openai
 import streamlit as st
 from dotenv import load_dotenv
 from langchain.chains import RetrievalQA
@@ -14,8 +14,8 @@ from langchain.vectorstores import Chroma
 
 # Load environment variables from .env file (Optional)
 load_dotenv()
-
-OPENAI_API_KEY= st.secrets["pass"]
+openai.api_key=st.secrets["pass"]
+OPENAI_API_KEY= openai.api_key
 
 system_template = """Use the following pieces of context to answer the users question.
 If you don't know the answer, just say that you don't know, don't try to make up an answer.
